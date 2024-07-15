@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>merge page</title>
+        <style>
+            * {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: rgb(235, 214, 187);
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 50%;
+  }
+}
+        </style>
+    </head>
+<body>
+<div class="main">
+
+    <h1>Resu-Me</h1>
+    <hr>
+    
+    <h2>PORTFOLIO</h2>
+    <p>Choose your template.</p>
+    
+    <!-- Portfolio Gallery Grid -->
+    <div class="row">
+      <div class="column">
+        <div class="content" onclick="location.href = 'file:///C:/Users/apeks/Desktop/pages/page1.html';">
+          <img src="c:\Users\apeks\Desktop\images\temp2.jpeg" alt="Mountains" style="width:100%">
+          <h3>My Work</h3>
+
+          <p>Lorem ipsum..</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content" onclick="location.href = 'file:///C:/Users/apeks/Desktop/pages/page2.html';">
+          <img src="c:\Users\apeks\Desktop\images\temp1.jpg" alt="Lights" style="width:100%">
+          <h3>My Work</h3>
+          <p>Lorem ipsum..</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content" onclick="location.href = 'file:///C:/Users/apeks/Desktop/pages/page3.html';">
+          <img src="c:\Users\apeks\Desktop\images\temp3.jpg" alt="Nature" style="width:100%">
+          <h3>My Work</h3>
+          <p>Lorem ipsum..</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content" onclick="location.href = 'file:///C:/Users/apeks/Desktop/pages/page4.html';">
+          <img src="c:\Users\apeks\Desktop\images\temp4.jpg" alt="Mountains" style="width:100%">
+          <h3>My Work</h3>
+          <p>Lorem ipsum..</p>
+
+        </div>
+      </div>
+    </div>
+    
+    <!-- END MAIN -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background: #0056b3;
+}
+
+#resume-output {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+    </style>
+    <script>
+        document.getElementById('resume-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    const education = document.getElementById('education').value;
+    const experience = document.getElementById('experience').value;
+    const skills = document.getElementById('skills').value;
+
+    const dynamicFields = document.querySelectorAll('.dynamic-field');
+    let dynamicData = '';
+    dynamicFields.forEach(field => {
+        dynamicData += `<h3>${field.querySelector('input').value}</h3>
+                        <p>${field.querySelector('textarea').value}</p>`;
+    });
+
+    const resume = `
+        <h2>${name}</h2>
+        <p>Email: ${email}</p>
+        <p>Phone: ${phone}</p>
+        <p>Address: ${address}</p>
+        <h3>Education</h3>
+        <p>${education}</p>
+        <h3>Experience</h3>
+        <p>${experience}</p>
+        <h3>Skills</h3>
+        <p>${skills}</p>
+        ${dynamicData}
+    `;
+
+    document.getElementById('resume-output').innerHTML = resume;
+});
+
+document.getElementById('add-field-btn').addEventListener('click', function() {
+    const dynamicFieldsContainer = document.getElementById('dynamic-fields');
+    const fieldHTML = `
+        <div class="form-group dynamic-field">
+            <label for="dynamic-title">Title:</label>
+            <input type="text" name="dynamic-title" required>
+            <label for="dynamic-content">Content:</label>
+            <textarea name="dynamic-content" required></textarea>
+        </div>
+    `;
+    dynamicFieldsContainer.insertAdjacentHTML('beforeend', fieldHTML);
+});
+
+document.getElementById('download-pdf-btn').addEventListener('click', function() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    const resumeContent = document.getElementById('resume-output').innerHTML;
+    doc.html(resumeContent, {
+        callback: function (doc) {
+            doc.save('resume.pdf');
+        },
+        x: 10,
+        y: 10
+    });
+});
+
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resu-Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Resu-Me</h1>
+        <h4>Fill in your details</h4>
+        <form id="resume-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="education">Education:</label>
+                <textarea id="education" name="education" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="experience">Experience:</label>
+                <textarea id="experience" name="experience" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <textarea id="skills" name="skills" required></textarea>
+            </div>
+            <div id="dynamic-fields"></div>
+            <button type="button" id="add-field-btn">Add More Fields</button>
+            <button class="submit" type="submit" onclick="location.href='file:///C:/Users/apeks/Desktop/merge/merge.html';">Generate Resume</button>
+            <button type="button" id="download-pdf-btn">Download as PDF</button>
+        </form>
+        <div id="resume-output"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

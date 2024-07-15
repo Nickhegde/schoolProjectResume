@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    padding: 2em;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 1em;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: #fff;
+}
+
+    </style>
+    <script>
+        document.getElementById('resume-builder').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Collect form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const experience = document.getElementById('experience').value;
+    const education = document.getElementById('education').value;
+    const skills = document.getElementById('skills').value;
+
+    // Generate resume (this part can be expanded with more functionality)
+    alert(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nExperience: ${experience}\nEducation: ${education}\nSkills: ${skills}`);
+});
+
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resu-Me Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Resu-Me Builder</h1>
+        <p>Create your professional resume easily.</p>
+    </header>
+    <main>
+        <section id="template-selection">
+            <h2>Select a Template</h2>
+            <div class="templates">
+                <!-- Add template previews here -->
+            </div>
+        </section>
+        <section id="resume-form">
+            <h2>Build Your Resume</h2>
+            <form id="resume-builder">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="experience">Work Experience:</label>
+                <textarea id="experience" name="experience" required></textarea>
+
+                <label for="education">Education:</label>
+                <textarea id="education" name="education" required></textarea>
+
+                <label for="skills">Skills:</label>
+                <textarea id="skills" name="skills" required></textarea>
+
+                <button type="submit" onclick="location.href='">Generate Resume</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Resu-Me Builder. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
