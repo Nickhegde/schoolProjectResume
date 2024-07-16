@@ -24,7 +24,7 @@ var onResumeSubmit = (event) => {
     localStorage.setItem("skills", skills);
 
     console.log(nameVar, email);
-    window.location.href = "../templates/temp1.html";
+    window.location.href = "../templates/temp4.html";
 }
 
 

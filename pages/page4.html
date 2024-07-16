@@ -62,24 +62,9 @@ footer {
 }
 
     </style>
-    <script>
-        document.getElementById('resume-builder').addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Collect form data
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const experience = document.getElementById('experience').value;
-    const education = document.getElementById('education').value;
-    const skills = document.getElementById('skills').value;
-
-    // Generate resume (this part can be expanded with more functionality)
-    alert(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nExperience: ${experience}\nEducation: ${education}\nSkills: ${skills}`);
-});
-
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./page4.js"></script>
     <title>Resu-Me Builder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -97,7 +82,7 @@ footer {
         </section>
         <section id="resume-form">
             <h2>Build Your Resume</h2>
-            <form id="resume-builder">
+            <form id="resume-builder" onsubmit="onResumeSubmit(event)">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -116,7 +101,7 @@ footer {
                 <label for="skills">Skills:</label>
                 <textarea id="skills" name="skills" required></textarea>
 
-                <button type="submit" onclick="location.href='">Generate Resume</button>
+                <button type="submit">Generate Resume</button>
             </form>
         </section>
     </main>

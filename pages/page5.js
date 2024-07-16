@@ -72,12 +72,11 @@ window.onload = () => {
         document.getElementById("name").innerText = nameVar;
         document.getElementById("contact-info").innerText = email + '\n' + phone;
         document.getElementById("summary").innerText = summary;
-        document.getElementById("companyName").innerText = companyName;
-        document.getElementById("companyCity").innerText = '|' + companyCity;
+        document.getElementById("companyName").innerText = companyName + '|' + companyCity;
         document.getElementById('dateLine').innerText = cStartDate + ' - ' + cEndDate + ' | ' + role;
         document.getElementById('roleDisc').innerText = responsibilities;
-        document.getElementById('schoolName').innerText = education;
-        document.getElementById('degree').innerHTML = ' | ' + degree;
+        document.getElementById('schoolName').innerText = education + '|' + degree;
+        // document.getElementById('degree').innerText = ' | ' + degree;
         document.getElementById('fieldOfStudy').innerHTML = fieldOfStudy + "\n" + gradDate;
         console.log(skillsArr.length);
         var skillItem;
