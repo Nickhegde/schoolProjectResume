@@ -49,6 +49,9 @@ button {
     margin-top: 1em;
     cursor: pointer;
 }
+.add-more-education, .remove-education, .add-more-experience, .remove-job {
+    width: 25%;
+}
 
 button:hover {
     background-color: #555;
@@ -93,10 +96,29 @@ footer {
                 <input type="tel" id="phone" name="phone" required>
 
                 <label for="experience">Work Experience:</label>
-                <textarea id="experience" name="experience" required></textarea>
+                <div id="experience">
+                    <div id="experience-container-1">
+                        <textarea id="job-title-1" name="jobTitle"  required placeholder="Job Title"></textarea>
+                        <textarea id="job-time-1" name="jobTime"  required placeholder="Time"></textarea>
+                        <textarea id="company-1" required name="company" placeholder="Company"></textarea>
+                        <textarea id="details-1" required name="details" placeholder="Details">Lorem ipsum dolor sit amet consectetur adipisicing elit.</textarea>
+                        <button class="remove-job" id="remove-job-1" onclick="onRemoveJob('experience-container-1')">Remove</button>
+                    </div>
+                </div>
+                <button class="add-more-experience" id="add-more-experience" onclick="onAddMoreExperience()">Add more</button>
 
                 <label for="education">Education:</label>
-                <textarea id="education" name="education" required></textarea>
+                <div id="education">
+                    <div id="education-container-1">
+                        <textarea id="degree-name-1" name="degree"  required placeholder="Name of the degree"></textarea>
+                        <textarea id="university-name-1" name="university"  required placeholder="University Name"></textarea>
+                        <textarea id="year-1" required name="year" placeholder="Year"></textarea>
+                        <textarea id="about-1" required name="about" placeholder="About the Degree">Lorem ipsum dolor sit amet consectetur adipisicing elit.</textarea>
+                        <button class="remove-education" id="remove-education-1" onclick="onRemoveEducation('education-container-1')">Remove</button>
+                    </div>
+                </div>
+
+                <button class="add-more-education" id="add-more-education" onclick="onAddMoreEducation()">Add more</button>
 
                 <label for="skills">Skills:</label>
                 <textarea id="skills" name="skills" required></textarea>
