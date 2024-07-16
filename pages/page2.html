@@ -82,7 +82,7 @@ footer {
         </section>
         <section id="resume-form">
             <h2>Build Your Resume</h2>
-            <form id="resume-builder">
+            <form id="resume-builder" onsubmit="onResumeSubmit(event)"> 
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -101,7 +101,7 @@ footer {
                 <label for="skills">Skills:</label>
                 <textarea id="skills" name="skills" required></textarea>
 
-                <button type="submit" onclick="location.href='">Generate Resume</button>
+                <button type="submit">Generate Resume</button>
             </form>
         </section>
     </main>

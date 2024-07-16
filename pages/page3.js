@@ -5,8 +5,12 @@ var phone = "";
 var experience = "";
 var education = "";
 var skills = "";
+var languages = "";
+var hobbies = "";
+
 var educationCount = 1;
 var experienceCount = 1;
+var publicationsCount = 1;
 
 var onResumeSubmit = (event) => {
     event.preventDefault();
@@ -16,9 +20,11 @@ var onResumeSubmit = (event) => {
     phone = document.getElementById('phone').value;
     experience = JSON.stringify(readTextareaValues("experience"));
     education = JSON.stringify(readTextareaValues("education"));
-    console.log("education",education);
-    console.log("experience",experience);
     skills = document.getElementById('skills').value;
+    languages = document.getElementById('languages').value;
+    hobbies = document.getElementById('hobbies').value;
+    publications = JSON.stringify(readTextareaValues("publications"));
+
    
     localStorage.setItem("pageFlag",'3');
     localStorage.setItem("nameVar",nameVar);
@@ -27,6 +33,9 @@ var onResumeSubmit = (event) => {
     localStorage.setItem("experience",experience);
     localStorage.setItem("education",education);
     localStorage.setItem("skills", skills);
+    localStorage.setItem("languages", languages);
+    localStorage.setItem("hobbies", hobbies);
+    localStorage.setItem("publications", publications);
 
     console.log(nameVar, email);
     window.location.href = "../templates/temp3.html";
@@ -61,23 +70,34 @@ window.onload = () => {
         phone = localStorage.getItem("phone");
         skills = localStorage.getItem("skills");
         var skillsArr =skills.split(",");
-        console.log(skillsArr);
-        console.log(nameVar, email, phone, experience, education, skills);
+        languages = localStorage.getItem("languages");
+        var languagesArr =languages.split(",");
+        hobbies = localStorage.getItem("hobbies");
+        var hobbiesArr =hobbies.split(",");
+
+        setListItems(skillsArr,"skills");
+        setListItems(languagesArr,"languages");
+        setListItems(hobbiesArr,"hobbies");
 
         setEducation();
         setExperience();
+        setPublication();
 
         document.getElementById("name").innerText = nameVar;
         document.getElementById("email").innerText = email;
       
         console.log(skillsArr.length);
-        var skillItem;
-        for (var i = 0; i < skillsArr.length; i++) {
-            skillItem = skillsArr[i];
-            var li = document.createElement('li');
-            li.innerHTML = skillItem;  
-            document.getElementById('skills').appendChild(li);
-        }
+        
+    }
+}
+
+var setListItems = (Arr,id) => {
+    var item;
+    for (var i = 0; i < Arr.length; i++) {
+        item = Arr[i];
+        var li = document.createElement('li');
+        li.innerHTML = item;  
+        document.getElementById(id).appendChild(li);
     }
 }
 
@@ -131,6 +151,20 @@ var setExperience = () => {
     return;
 }
 
+var setPublication = () => {
+    var publications = localStorage.getItem("publications");
+    var publicationsArr =JSON.parse(publications);
+    var publicationItem;
+    let publicationsContainer = document.getElementById("publications");
+    for (var i = 0; i < publicationsArr.length; i++) {
+        publicationItem = publicationsArr[0];
+        const htmlString = `<p class="reference" contenteditable="true">${publicationItem.publication}</p>`
+
+        publicationsContainer.insertAdjacentHTML('beforeend', htmlString);
+    }
+    return;
+}
+
 var onAddMoreEducation = () => {
     educationCount = educationCount + 1;
     let educationContainer = document.getElementById("education");
@@ -172,6 +206,24 @@ var onRemoveJob = (id) => {
     if(experienceCount === 1) return;
     onRemoveChild("experience",id);
     experienceCount=experienceCount-1;
+}
+
+var onAddMorePublication = () => {
+    publicationsCount = publicationsCount + 1;
+    let publicationsContainer = document.getElementById("publications");
+
+    const htmlString = `<div id="publication-container-${publicationsCount}">
+    <textarea id="publication-name-${publicationsCount}" name="publication"  required placeholder="Name of the publication"></textarea>
+    <button class="remove-publication" id="remove-publication-${publicationsCount}" onclick="onRemovePublication('publication-container-${publicationsCount}')">Remove</button>
+    </div>`;
+
+    publicationsContainer.insertAdjacentHTML('beforeend', htmlString);
+}
+
+var onRemovePublication = (id) => {
+    if(experienceCount === 1) return;
+    onRemoveChild("publications",id);
+    publicationsCount=publicationsCount-1;
 }
 
 var onRemoveChild = (parentId,childId) => {
