@@ -49,6 +49,11 @@ button {
     margin-top: 1em;
     cursor: pointer;
 }
+.add-more-education, .remove-education, 
+.add-more-experience, .remove-job, 
+.add-more-publication, .remove-publication {
+    width: 25%;
+}
 
 button:hover {
     background-color: #555;
@@ -62,7 +67,7 @@ footer {
 }
 
     </style>
-<script src="./page5.js"></script>
+    <script src="./page5.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resu-Me Builder</title>
@@ -82,7 +87,7 @@ footer {
         </section>
         <section id="resume-form">
             <h2>Build Your Resume</h2>
-            <form id="resume-builder" onsubmit="onResumeSubmit(event)"> 
+            <form id="resume-builder" onsubmit="onResumeSubmit(event)">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -93,13 +98,30 @@ footer {
                 <input type="tel" id="phone" name="phone" required>
 
                 <label for="experience">Work Experience:</label>
-                <textarea id="experience" name="experience" required></textarea>
+                <div id="experience">
+                </div>
+                <button class="add-more-experience" id="add-more-experience" onclick="onAddMoreExperience()">Add more</button>
 
                 <label for="education">Education:</label>
-                <textarea id="education" name="education" required></textarea>
+                <div id="education">
+                </div>
+
+                <button class="add-more-education" id="add-more-education" onclick="onAddMoreEducation()">Add more</button>
 
                 <label for="skills">Skills:</label>
                 <textarea id="skills" name="skills" required></textarea>
+
+                <label for="languages">Languages:</label>
+                <textarea id="languages" name="languages" required></textarea>
+
+                <label for="publication">Publication:</label>
+                <div id="publications">
+                    
+                </div>
+                <button class="add-more-publication" id="add-more-publication" onclick="onAddMorePublication()">Add more</button>
+
+                <label for="hobbies">Hobbies:</label>
+                <textarea id="hobbies" name="hobbies" required></textarea>
 
                 <button type="submit">Generate Resume</button>
             </form>
