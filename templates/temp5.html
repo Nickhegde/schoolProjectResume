@@ -1,0 +1,361 @@
+<html>
+  
+  <head>
+    <style>
+      html {
+        height: 100%;
+        background: #f5f5f5;
+      }
+
+      body {
+        height: 100%;
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+        font-family:"sans-serif";
+        align-items: center;
+        -webkit-align-items: center;
+        margin: 0;
+      }
+
+      .wrapper{
+        -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        max-width: 960px;
+        width: 90%;
+      }
+
+      header {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: row;
+        -webkit-flex-direction: row;
+        justify-content: flex-end;
+        -webkit-justify-content: flex-end;
+        align-items: center;
+        -webkit-align-items: center;
+        background: #42A8C0;
+        width: 100%;
+        color: white;
+      }
+
+      .name-container {
+        flex: 1 1 auto;
+        -webkit-flex:  1 1 auto;
+        text-align: center;
+      }
+
+      .name-container h1 {
+        font-weight: 100;
+        letter-spacing: 2px;
+        font-size: 40px;
+      }
+
+      .name-container h4 {
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+
+      .profile-container {
+        flex: 0 0 auto;
+        -webkit-flex:  0 0 auto;
+        background: rgba(0,0,0,0.2);
+        display: flex;
+        display: -webkit-flex;
+        padding: 10px;
+      }
+
+      .social-container {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+        justify-content: center;
+        font-size: 17px;
+        margin-top: 10px;
+      }
+
+      .social-container a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .social-container a:hover {
+        text-decoration: underline;
+      }
+
+      .contact-list {
+        list-style-type: none;
+      }
+
+      .contact-list .fa {
+        margin-right: 10px;
+        font-size: 20px;
+        vertical-align: middle;
+      }
+
+      .contact-list li {
+        margin-bottom: 5px;
+      }
+
+      .portrait-pic {
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+      }
+
+      main {
+        background: white;
+        flex: 1 0 auto;
+        -webkit-flex:  1 0 auto;
+        width: 100%;
+        color: black;
+      }
+
+      section {
+        padding-left: 20px;
+        padding-right: 20px
+      }
+
+      .summ-box {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .experience-box {
+        margin: 20px auto;
+        text-align: left;
+      }
+
+      .section-title {
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 2;
+        color: #2d7788;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 30px;
+      }
+
+      .item {
+        margin-bottom: 30px;
+      }
+
+      .upper-row {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 2px;
+      }
+
+      .job-title {
+          font-size: 20px;
+          margin-top: 0;
+          margin-bottom: 0;
+          font-weight: bold;
+      }
+
+      .time {
+          position: absolute;
+          right: 0;
+          top: 0;
+          color: #7a8aa0;
+      }
+
+      .company {
+        margin-bottom: 10px;
+        color: #7a8aa0;
+      }
+
+      .education-box {
+        margin: 20px auto;
+        text-align: left;
+      }
+
+      .portfolio-container{
+        display:flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+
+      }
+
+      .portfolio-title {
+        text-transform: uppercase;
+        font-size: 20px;
+          font-weight: 2;
+          color: #2d7788;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          margin-left: 30px;
+      }
+
+      #menu-picker {
+        display: flex;
+        display: -webkit-flex;
+        text-align: center;
+      }
+
+      .menu-text {
+        -webkit-flex: 1 0 auto;
+        flex: 1 0 auto;
+        font-size: 22px;
+          font-weight: bold;
+          color: #2d7788;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        text-decoration: none;
+      }
+
+      a:hover.menu-text {
+        color: #1a454f;
+      }
+
+      p.reference {
+      padding-left: 2em;
+      text-indent: -2em;
+      }
+
+      .skills-container {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+        font-size: 20px;
+        margin-top: 10px;
+      }
+
+      #pages .skills {
+        list-style-type: none;
+        flex-wrap: wrap;
+      }
+
+      #pages .skill {
+        flex-grow: 1;
+        width: 50%;
+        margin-bottom: 20px;
+      }
+
+      .skills .fa {
+        margin-right: 7.5px;
+        margin-left: 7.5px;
+        font-size: 20px;
+        vertical-align: middle;
+      }
+
+      .skills li {
+        margin-bottom: 20px;
+      }
+
+      .line-break{
+        width: 80%;
+        border-top: 1px solid black;
+        margin: 0 auto;
+      }
+
+      .misc-container {
+        display: -webkit-flex;
+        flex-direction: column;
+        -webkit-flex-direction: column;
+      }
+
+      .misc-container .skills{
+        list-style-type: none;
+      }
+
+      .skills-wrapper {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: row;
+        -webkit-flex-direction: row;
+      }
+
+      p {
+        font-weight: 200;
+        letter-spacing: 1px;
+      }
+
+      #education,#experience, #publications{
+        margin-left: 30px;
+      }
+
+    </style>
+    <script src="../pages/page5.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  
+  <body>
+    <div class="wrapper" id="resume-template-container">
+      <header>
+        <div>
+          <h1 align=" extreme left" contenteditable="true" id="name">My Name</h1>
+          <h4  align= "left" contenteditable="true">Small summary of current position</h4>
+        </div><!--/name-container-->
+        <div class="profile-container">
+          <div class="social-container">
+              <ul>
+          <li class="email" contenteditable="true"><a href="mailto: yourname@email.com"><i class="fa fa-envelope" aria-hidden="true"></i></a><a href="mailto: yourname@email.com" id="email">yourname@email.com</a></li>
+          <li class="website" contenteditable="true"><a href="https://www.google.com" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a><a href="https://www.google.com" target="_blank">portfoliosite.com</a></li>
+          <li class="linkedin" contenteditable="true"><a href="https://www.google.com" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a><a href="https://www.google.com" target="_blank">linkedin.com/inname</a></li>
+          <li class="github" contenteditable="true"><a href="https://www.google.com" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a href="https://www.google.com" target="_blank">github.com/username</a></li>
+          <li class="twitter" contenteditable="true"><a href="https://www.google.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="https://www.google.com" target="_blank">@twittername</a></li>
+            </ul>
+          </div><!--/social-container-->
+          <div class="picture-container">
+            <img src="https://cdn.pixabay.com/photo/2016/02/22/18/57/puppy-1216269_960_720.jpg" class="portrait-pic" contenteditable="true">
+          </div><!--/picture-container-->
+        </div><!--/profile-container-->
+      </header><!--/header-->
+      <main>
+        <section class="summ-box" >
+          <p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tria genera bonorum; Nec vero alia sunt quaerenda contra Carneadeam illam sententiam. Quae quidem vel cum periculo est quaerenda vobis; Beatum, inquit. Duo Reges: constructio interrete.</p>
+          <div class="line-break"></div><!--/line-break-->
+        </section><!--/summ-box-->
+        <section class="experience-box">
+          <h2 class="section-title">Work Experience</h2>
+          <div id="experience"></div>
+        </section>
+        <div class="line-break"></div>
+        <section class="education-box">
+          <h2 class="section-title">Education</h2>
+          <div id="education"></div>
+        </section>
+        <div class="line-break"></div>
+        <section class="portfolio-container">
+          <div id="pages">
+            <div class="mydivshow portfolio1">
+              <div class="skills-container">
+                <h2 class="portfolio-title">Skills</h2>
+                <ul class="skills" id="skills"></ul>
+              </div>
+            </div>
+            <div class="line-break"></div>
+            <div class="mydivhide portfolio2">
+              <div class="showcase-container">
+                <h2 class="portfolio-title">Publications</h2>
+                <div id="publications"></div>
+              </div>
+              <div class="line-break"></div>
+            </div>
+          </div>
+        </section>
+        <section class="misc-container">
+          <div class="skills-wrapper">
+            <div class="skills-container">
+              <h2 class="portfolio-title">Hobbies</h2>
+              <ul class="skills" id="hobbies"></ul>
+            </div>
+          </div>
+          <div class="line-break"></div>
+          <div class="showcase-container">
+            <div class="skills-container">
+              <h2 class="portfolio-title">Languages</h2>
+              <ul class="skills" id="languages"></ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body> 
+</html>
