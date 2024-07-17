@@ -91,15 +91,46 @@
                 <label for="phone">Phone:</label>
                 <input type="tel" id="phone" name="phone" required>
 
+                <label for="objective">Objective</label>
+                <textarea id="objective" name="objective" required></textarea>
+
+                <label for="summary">About Me</label>
+                <textarea id="summary" name="summary" required></textarea>
+
                 <label for="experience">Work Experience:</label>
-                <textarea id="experience" name="experience" required></textarea>
+                <div id="experience">
+                    <div id="experience-container-1">
+                        <textarea id="job-title-1" name="jobTitle"  required placeholder="Job Title"></textarea>
+                        <textarea id="job-time-1" name="jobTime"  required placeholder="Time"></textarea>
+                        <textarea id="company-1" required name="company" placeholder="Company"></textarea>
+                        <textarea id="details-1" required name="details" placeholder="Details">Lorem ipsum dolor sit amet consectetur adipisicing elit.</textarea>
+                        <button class="remove-job" id="remove-job-1" onclick="onRemoveJob('experience-container-1')">Remove</button>
+                    </div>
+                </div>
+                <button class="add-more-experience" id="add-more-experience" onclick="onAddMoreExperience()">Add more</button>
 
                 <label for="education">Education:</label>
-                <textarea id="education" name="education" required></textarea>
+                <div id="education">
+                    <div id="education-container-1">
+                        <textarea id="degree-name-1" name="degree"  required placeholder="Details"></textarea>
+                        <button class="remove-education" id="remove-education-1" onclick="onRemoveEducation('education-container-1')">Remove</button>
+                    </div>
+                </div>
+                <button class="add-more-education" id="add-more-education" onclick="onAddMoreEducation()">Add more</button>
+
+                <label for="projects">Projects:</label>
+                <div id="projects">
+                    <div id="projects-container-1">
+                        <textarea id="project-title-1" name="projectTitle"  required placeholder="Project Title"></textarea>
+                        <textarea id="projectRole-1" name="projectRole"  required placeholder="Role"></textarea>
+                        <textarea id="projectDetails-1" required name="projectDetails" placeholder="Details">Lorem ipsum dolor sit amet consectetur adipisicing elit.</textarea>
+                        <button class="remove-project" id="remove-project-1" onclick="onRemoveProject('projects-container-1')">Remove</button>
+                    </div>
+                </div>
+                <button class="add-more-project" id="add-more-project" onclick="onAddMoreProject()">Add more</button>
 
                 <label for="skills">Skills:</label>
                 <textarea id="skills" name="skills" required></textarea>
-                <div id="skills"></div>
                 <!-- <button id="skilladd" type="menu" class="input-textarea" onclick="addteaxtarea()"><i class="fas fa-plus-circle"></i> +</button>
                 <button id="skillrem" type="button" class="btn btn-danger" onclick="remskill(event)"><i class="fas fa-minus-circle"></i> Skill</button></div> -->
 

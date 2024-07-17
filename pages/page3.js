@@ -107,7 +107,7 @@ var setEducation = () => {
     var educationItem;
         let educationContainer = document.getElementById("education");
         for (var i = 0; i < educationArr.length; i++) {
-            educationItem = educationArr[0];
+            educationItem = educationArr[i];
             const htmlString = `<div class="item" contenteditable="true">
             <div class="meta-info">
                 <div class="upper-row">
@@ -132,7 +132,7 @@ var setExperience = () => {
     var experienceItem;
     let experienceContainer = document.getElementById("experience");
     for (var i = 0; i < experienceArr.length; i++) {
-        experienceItem = experienceArr[0];
+        experienceItem = experienceArr[i];
         const htmlString = `<div class="item" contenteditable="true">
         <div class="meta-info">
             <div class="upper-row">
@@ -157,7 +157,7 @@ var setPublication = () => {
     var publicationItem;
     let publicationsContainer = document.getElementById("publications");
     for (var i = 0; i < publicationsArr.length; i++) {
-        publicationItem = publicationsArr[0];
+        publicationItem = publicationsArr[i];
         const htmlString = `<p class="reference" contenteditable="true">${publicationItem.publication}</p>`
 
         publicationsContainer.insertAdjacentHTML('beforeend', htmlString);
